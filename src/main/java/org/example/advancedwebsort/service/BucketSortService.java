@@ -9,16 +9,26 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Service for performing Bucket Sort on an array of integers.
+ * Logs the sorting process and returns a SortingLogDTO with input data, sorted data, algorithm name, and execution time.
+ */
 @Service
 public class BucketSortService {
 
     private static final Logger logger = LoggerFactory.getLogger(BucketSortService.class);
 
+    /**
+     * Sorts the given data using the bucket sort algorithm.
+     *
+     * @param data the array of integers to sort.
+     * @return a SortingLogDTO containing the input data, sorted data, algorithm name, and execution time.
+     */
     public SortingLogDTO sort(int[] data) {
         long startTime = System.nanoTime();
 
         // Store the input data before sorting
-        int[] inputData = data.clone();  // Clone to keep original data for logging
+        int[] inputData = data.clone();
 
         // Log the input data
         logger.debug("Input data: {}", arrayToString(inputData));
@@ -37,6 +47,11 @@ public class BucketSortService {
         return new SortingLogDTO(inputData, data, "Bucket Sort", executionTime);
     }
 
+    /**
+     * Performs bucket sort on the given data.
+     *
+     * @param data the array of integers to sort.
+     */
     private void bucketSort(int[] data) {
         int n = data.length;
         if (n <= 0) return;
@@ -67,7 +82,12 @@ public class BucketSortService {
         }
     }
 
-    // Helper method to convert an array to a string for logging purposes
+    /**
+     * Converts an array of integers into a string for logging.
+     *
+     * @param array the array to convert.
+     * @return a string representation of the array.
+     */
     private String arrayToString(int[] array) {
         if (array == null) {
             return "null";
