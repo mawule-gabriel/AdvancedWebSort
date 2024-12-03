@@ -7,10 +7,18 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+/**
+ * Configuration class for Spring MVC settings, including view resolver setup.
+ */
 @Configuration
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
+    /**
+     * Bean definition for InternalResourceViewResolver to resolve JSP views.
+     *
+     * @return a configured InternalResourceViewResolver instance.
+     */
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
