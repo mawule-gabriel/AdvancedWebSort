@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * Controller for handling user requests related to sorting operations.
+ * Displays sorting page and processes sorting based on selected algorithm.
+ */
 @Controller
 public class ViewController {
 
@@ -31,11 +35,24 @@ public class ViewController {
     @Autowired
     private BucketSortService bucketSortService;
 
+    /**
+     * Displays the sorting page.
+     *
+     * @return the name of the view (sort.jsp).
+     */
     @GetMapping("/sort")
     public String sortPage() {
-        return "sort"; // This will resolve to sort.jsp
+        return "sort";
     }
 
+    /**
+     * Executes the selected sorting algorithm and adds the result to the model.
+     *
+     * @param algorithm the name of the sorting algorithm to use.
+     * @param data the input data (comma-separated values) to be sorted.
+     * @param model the Spring model to add attributes for rendering.
+     * @return the name of the view (sort.jsp) with the sorting result.
+     */
     @PostMapping("/sort")
     public String executeSorting(@RequestParam String algorithm, @RequestParam String data, Model model) {
         // Convert input string to an integer array
@@ -71,7 +88,12 @@ public class ViewController {
         return "sort";
     }
 
-    // Helper function to parse the input data string to an integer array
+    /**
+     * Helper method to parse the input data string into an integer array.
+     *
+     * @param data the input data as a comma-separated string.
+     * @return an array of integers parsed from the input string.
+     */
     private int[] parseData(String data) {
         String[] dataArray = data.split(",");
         int[] result = new int[dataArray.length];
