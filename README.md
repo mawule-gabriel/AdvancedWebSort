@@ -53,12 +53,12 @@ The goal of this project is to design and build a web application that provides 
 #### Input Page:
 On this page, you can input a set of numbers (Array) separated by commas and select the sorting algorithm you want to use. After clicking the **Sort** button, you will get the results.
 
-![Input Page](Input_page.PNG)
+![Input Page](Input_Page.png)
 
 #### Results Page:
 This page displays your sorted data, the algorithm used, and the execution time in nanoseconds.
 
-![Results Page](Result_Page.PNG)
+![Results Page](Result_Page.png)
 
 ### Deployment on Apache Tomcat:
 - Configures and deploys the web application on an Apache Tomcat server for efficient handling of HTTP requests and responses.
